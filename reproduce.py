@@ -77,6 +77,25 @@ def correctness(dataset,output):
     write_csv(output/f'{dataset}_correctness_runs.csv',rows)
     return dict(methods=summary,contrasts=contrasts)
 
+def bilinear_sensitivity(dataset,output):
+    runs=[dict(np.load(ROOT/'predictions'/f'{dataset}_bilinear_sensitivity_{s}.npz')) for s in SEEDS]
+    methods=[k for k in runs[0] if k not in ('people','y')];rows=[]
+    union=np.unique(np.concatenate([z['people'] for z in runs]));present=np.zeros((5,len(union)));losses={m:np.zeros_like(present) for m in methods}
+    for r,(seed,z) in enumerate(zip(SEEDS,runs)):
+        pos=np.searchsorted(union,z['people']);present[r,pos]=1;y=z['y']
+        for m in methods:
+            prob=np.clip(z[m].astype(float),np.finfo(float).eps,1-np.finfo(float).eps)
+            loss=-(y*np.log(prob)+(1-y)*np.log1p(-prob));losses[m][r,pos]=loss.mean(1)
+            rows.append(dict(seed=seed,method=m,logloss=float(loss.mean()),auc=roc_auc_score(y.ravel(),prob.ravel()),brier=brier_score_loss(y.ravel(),prob.ravel()),accuracy=accuracy_score(y.ravel(),prob.ravel()>=.5)))
+    summary=summarize(rows,methods,['logloss','auc','brier','accuracy']);pairs=[]
+    pairs = [('CDLD_logit', m+'_logit') for m in METHODS[1:]]
+    pairs += [(m+'_logit', m+'_raw') for m in METHODS]
+    pairs += [(m+'_logit', 'item_rate') for m in METHODS]
+    intervals=paired_intervals(losses,present,pairs,20261027,100)
+    contrasts={a+'_vs_'+b:dict(logloss_reduction=summary[b]['logloss']['mean']-summary[a]['logloss']['mean'],conditional_95_CI=intervals[a+'_vs_'+b]) for a,b in pairs}
+    write_csv(output/f'{dataset}_bilinear_sensitivity_runs.csv',rows)
+    return dict(methods=summary,contrasts=contrasts)
+
 def activity(dataset):
     z=np.load(ROOT/'predictions'/f'{dataset}_response_counts.npz');a=z['counts'];q=[z[f'seed{s}'] for s in SEEDS]
     def stat(x):
@@ -105,7 +124,7 @@ def figure(results,output):
         ax.set_ylabel('Correctness AUC (with item rate)');ax.set_ylim(.68,.81);ax.legend(frameon=False,fontsize=9)
     for ax in axs.flat:
         ax.set_xticks(range(3),['CDLD','Response\nSVD','Exposure\nSVD']);ax.set_xlim(-.45,2.45);ax.spines[['top','right']].set_visible(False);ax.grid(axis='y',alpha=.18)
-    fig.savefig(output/'figure1.pdf');fig.savefig(output/'figure1.png',dpi=300);plt.close(fig)
+    fig.savefig(output/'figure4.pdf');fig.savefig(output/'figure4.png',dpi=300);plt.close(fig)
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,default=ROOT/'output');args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=True)
@@ -121,6 +140,11 @@ def main():
     results['samples']={ds:activity(ds) for ds in ['EdNet','Eedi']}
     check(results,json.loads((ROOT/'expected.json').read_text()))
     (args.output/'results.json').write_text(json.dumps(results,indent=2));figure(results,args.output)
+    sensitivity={ds:bilinear_sensitivity(ds,args.output) for ds in ['EdNet','Eedi']}
+    check(sensitivity,json.loads((ROOT/'sensitivity_expected.json').read_text()))
+    (args.output/'bilinear_sensitivity.json').write_text(json.dumps(sensitivity,indent=2))
+    import subprocess,sys
+    subprocess.run([sys.executable,str(ROOT/'draw_figures.py'),'--output',str(args.output.resolve())],check=True)
     (args.output/'verification.json').write_text(json.dumps(dict(passed=True,bootstrap_draws=5000,absolute_tolerance=1e-10)))
     print('DONE: all recomputed statistics match the archived reference',flush=True)
 if __name__=='__main__':main()
