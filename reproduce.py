@@ -15,6 +15,28 @@ SEEDS = range(42, 47)
 METHODS = ['CDLD', 'responseSVD', 'exposureSVD']
 CLASSIFIERS = ['frequency', 'B', 'CDLD', 'B_CDLD', 'responseSVD', 'B_responseSVD', 'exposureSVD', 'B_exposureSVD']
 
+def load_prediction(name):
+    path = ROOT / 'predictions' / name
+    arrays = dict(np.load(path)) if path.exists() else {}
+    if name.startswith('Eedi_') and ('y' not in arrays and 'counts' not in arrays):
+        local = ROOT / 'local_data' / name
+        if not local.exists():
+            raise FileNotFoundError(
+                'Eedi labels must be reconstructed locally first: '
+                'python prepare_eedi_labels.py --data-zip /path/to/data.zip')
+        from prepare_eedi_labels import digest
+        expected = json.loads((ROOT / 'eedi_local_checksums.json').read_text())[name]
+        with np.load(local) as z:
+            if set(z.files) != set(expected):
+                raise ValueError('Unexpected local data fields: ' + name)
+            for key in z.files:
+                if digest(z[key]) != expected[key]:
+                    raise ValueError('Local data checksum mismatch: ' + name + '/' + key)
+                if key in arrays:
+                    raise ValueError('Overlapping public/local fields: ' + key)
+                arrays[key] = z[key]
+    return arrays
+
 def summarize(rows, methods, metrics):
     return {m: {k: dict(mean=float(np.mean(v := [r[k] for r in rows if r['method'] == m])), sd=float(np.std(v, ddof=1)), min=min(v), max=max(v)) for k in metrics} for m in methods}
 
@@ -34,7 +56,7 @@ def paired_intervals(loss, present, pairs, random_seed, batch_size):
     return {a+'_vs_'+b: np.quantile(v, [.025,.975]).tolist() for (a,b),v in draws.items()}
 
 def classification(dataset, mode, output):
-    runs = [dict(np.load(ROOT/'predictions'/f'{dataset}_{mode}_{s}.npz')) for s in SEEDS]
+    runs = [load_prediction(f'{dataset}_{mode}_{s}.npz') for s in SEEDS]
     union = np.unique(np.concatenate([z['groups'] for z in runs])); n=len(union)
     present=np.zeros((5,n)); losses={m:np.zeros((5,n)) for m in CLASSIFIERS}; rows=[]; domain={m:[] for m in CLASSIFIERS}
     for r,(seed,z) in enumerate(zip(SEEDS,runs)):
@@ -58,7 +80,7 @@ def classification(dataset, mode, output):
     return dict(methods=summary,contrasts=contrasts),domains
 
 def correctness(dataset,output):
-    runs=[dict(np.load(ROOT/'predictions'/f'{dataset}_correctness_{s}.npz')) for s in SEEDS]
+    runs=[load_prediction(f'{dataset}_correctness_{s}.npz') for s in SEEDS]
     methods=[k for k in runs[0] if k not in ('people','y')];rows=[]
     union=np.unique(np.concatenate([z['people'] for z in runs]));present=np.zeros((5,len(union)));losses={m:np.zeros_like(present) for m in methods}
     for r,(seed,z) in enumerate(zip(SEEDS,runs)):
@@ -78,7 +100,7 @@ def correctness(dataset,output):
     return dict(methods=summary,contrasts=contrasts)
 
 def bilinear_sensitivity(dataset,output):
-    runs=[dict(np.load(ROOT/'predictions'/f'{dataset}_bilinear_sensitivity_{s}.npz')) for s in SEEDS]
+    runs=[load_prediction(f'{dataset}_bilinear_sensitivity_{s}.npz') for s in SEEDS]
     methods=[k for k in runs[0] if k not in ('people','y')];rows=[]
     union=np.unique(np.concatenate([z['people'] for z in runs]));present=np.zeros((5,len(union)));losses={m:np.zeros_like(present) for m in methods}
     for r,(seed,z) in enumerate(zip(SEEDS,runs)):
@@ -97,7 +119,7 @@ def bilinear_sensitivity(dataset,output):
     return dict(methods=summary,contrasts=contrasts)
 
 def activity(dataset):
-    z=np.load(ROOT/'predictions'/f'{dataset}_response_counts.npz');a=z['counts'];q=[z[f'seed{s}'] for s in SEEDS]
+    z=load_prediction(f'{dataset}_response_counts.npz');a=z['counts'];q=[z[f'seed{s}'] for s in SEEDS]
     def stat(x):
         return dict(n=len(x),mean=float(x.mean()),p25=float(np.quantile(x,.25)),median=float(np.median(x)),p75=float(np.quantile(x,.75)),min=int(x.min()),max=int(x.max()))
     return dict(all=stat(a),eligible=stat(a[a>=80]),eligible_percent=float((a>=80).mean()*100),evaluation_unique=stat(a[np.unique(np.concatenate(q))]),per_run={str(s):stat(a[u]) for s,u in zip(SEEDS,q)})

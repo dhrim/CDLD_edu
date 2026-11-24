@@ -109,3 +109,7 @@ Release validation: the CPU check and archived numerical reproduction were run;
 full GPU retraining was not run. The mathematical/model definitions were compared
 with the archived EdNet notebook. The numerical-reproduction package retains the
 original saved predictions and reference values unchanged.
+
+## Data conditions
+
+See [source-specific data terms](../DATA_TERMS.md). Training and export outputs may contain source-derived labels, indices and caches. Keep them local; `export.py` produces local analysis inputs, not a redistribution package.

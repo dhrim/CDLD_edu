@@ -8,11 +8,14 @@ Open **[paper_results.ipynb](paper_results.ipynb)** to inspect the executed tabl
 
 ## Reproduce
 
+First obtain the official Eedi `data.zip` from the [provider](https://www.eedischool.com/projects/neurips-education-challenge). Read [data terms](DATA_TERMS.md). The preparation command below reconstructs evaluation labels and pairing information locally; it does not train models.
+
 Use Python 3.10–3.12 on a CPU. Tested with Python 3.10.6 and the pinned numerical dependencies.
 
 ```bash
 python -m pip install -r requirements.txt
 python -m pip install notebook
+python prepare_eedi_labels.py --data-zip /path/to/eedi/data.zip
 jupyter notebook paper_results.ipynb
 ```
 
@@ -29,7 +32,10 @@ The script recalculates metrics and 5,000 paired bootstrap resamples from `predi
 - `paper_results.ipynb`: executable analysis viewer with saved results
 - `reproduce.py`: metric and paired-bootstrap calculations
 - `draw_figures.py`: workflow, result plots and explanatory diagrams
-- `predictions/`: compressed fitted predictions, labels, pairing indices and response counts
+- `predictions/`: fitted predictions; EdNet files also contain evaluation labels and pairing data
+- `prepare_eedi_labels.py`: reconstruct Eedi evaluation inputs from provider data
+- `local_data/`: locally generated Eedi labels and pairing data (not distributed)
+- `DATA_TERMS.md`: source-specific data conditions
 - `requirements.txt`: numerical dependencies
 - `expected.json` and `sensitivity_expected.json`: reference statistics for checking reproduction
 - `manifest.json`: input checksums
@@ -38,7 +44,7 @@ The notebook covers item classification, bundle-grouped classification, correctn
 
 ## Reproduction scope
 
-The root-level reproduction command recalculates numerical analyses **from saved predictions**, without a GPU or raw dataset download. The separate [training source and execution guide](training/README.md) provides preprocessing, split construction, representation generation, classification, and predictor training. Training requires provider data and its own environment. Neither the full original response matrices nor personal names or contact details are bundled.
+The root-level reproduction command recalculates numerical analyses **from saved predictions**, without a GPU. Eedi evaluation inputs require a one-time reconstruction from the provider dataset. The separate [training source and execution guide](training/README.md) provides preprocessing, split construction, representation generation, classification, and predictor training. Training requires provider data and its own environment. Neither the full original response matrices nor personal names or contact details are bundled.
 
 The training scripts are archived study code connected by a new portable runner. Synthetic-data integration checks passed; full GPU retraining with the assembled runner has not been performed. See [validation details](training/validation.json).
 

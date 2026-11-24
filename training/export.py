@@ -1,4 +1,4 @@
-"""Assemble newly trained predictions and evaluate them without replacing paper results."""
+"""Assemble local analysis inputs; outputs include provider data and are not release artifacts."""
 import argparse,json,sys
 from pathlib import Path
 import numpy as np
