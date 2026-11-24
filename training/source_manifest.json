@@ -1,0 +1,260 @@
+[
+  {
+    "file": "legacy/20261028_revision1/EdNet/original_core.py",
+    "source": "분석/20261028_revision1/EdNet/original_core.py",
+    "sha256": "4df31d41dec35f0b27f086d3f5de3a48d443c249baa108d2070d0910b3f912e6",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/EdNet/train_mlp.py",
+    "source": "분석/20261028_revision1/EdNet/train_mlp.py",
+    "sha256": "167ac58618d9056a5c9b40600774c20fcb0e48441b973c37b4e79d1b2aca7e6e",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/EdNet/bilinear_fast.py",
+    "source": "분석/20261028_revision1/EdNet/bilinear_fast.py",
+    "sha256": "7c0a5b63aaf90782930bd5bf57d785cb50049d42435523e6e80b3cbaa9741850",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/EdNet/bilinear_extra_fast.py",
+    "source": "분석/20261028_revision1/EdNet/bilinear_extra_fast.py",
+    "sha256": "18fbcf6364ad6b80b9a4602c29b46ed7e37b9e45517edaf49821d10a418bf166",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/EdNet/select_extended_grid.py",
+    "source": "분석/20261028_revision1/EdNet/select_extended_grid.py",
+    "sha256": "e15b974071847304f0e63a498773d68f8d4fd8c03f49ddcac890eb11620d4dca",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261029_bilinear_logit_rate/EdNet/bilinear_fast.py",
+    "source": "분석/20261029_bilinear_logit_rate/EdNet/bilinear_fast.py",
+    "sha256": "16e1fdd72c5750abfa4f060ec1a6641351b03ed63f1b859b101e5f09ad6dce27",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261029_bilinear_logit_rate/EdNet/bilinear_extra_fast.py",
+    "source": "분석/20261029_bilinear_logit_rate/EdNet/bilinear_extra_fast.py",
+    "sha256": "481f0d2af2f8560697476cd637f2393d5d0a570c2e60b805fce3fbeda9847095",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261029_bilinear_logit_rate/EdNet/select_extended_grid.py",
+    "source": "분석/20261029_bilinear_logit_rate/EdNet/select_extended_grid.py",
+    "sha256": "e15b974071847304f0e63a498773d68f8d4fd8c03f49ddcac890eb11620d4dca",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/Eedi/original_core.py",
+    "source": "분석/20261028_revision1/Eedi/original_core.py",
+    "sha256": "4df31d41dec35f0b27f086d3f5de3a48d443c249baa108d2070d0910b3f912e6",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/Eedi/train_mlp.py",
+    "source": "분석/20261028_revision1/Eedi/train_mlp.py",
+    "sha256": "167ac58618d9056a5c9b40600774c20fcb0e48441b973c37b4e79d1b2aca7e6e",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/Eedi/bilinear_fast.py",
+    "source": "분석/20261028_revision1/Eedi/bilinear_fast.py",
+    "sha256": "7c0a5b63aaf90782930bd5bf57d785cb50049d42435523e6e80b3cbaa9741850",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/Eedi/bilinear_extra_fast.py",
+    "source": "분석/20261028_revision1/Eedi/bilinear_extra_fast.py",
+    "sha256": "18fbcf6364ad6b80b9a4602c29b46ed7e37b9e45517edaf49821d10a418bf166",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/Eedi/select_extended_grid.py",
+    "source": "분석/20261028_revision1/Eedi/select_extended_grid.py",
+    "sha256": "e15b974071847304f0e63a498773d68f8d4fd8c03f49ddcac890eb11620d4dca",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261029_bilinear_logit_rate/Eedi/bilinear_fast.py",
+    "source": "분석/20261029_bilinear_logit_rate/Eedi/bilinear_fast.py",
+    "sha256": "16e1fdd72c5750abfa4f060ec1a6641351b03ed63f1b859b101e5f09ad6dce27",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261029_bilinear_logit_rate/Eedi/bilinear_extra_fast.py",
+    "source": "분석/20261029_bilinear_logit_rate/Eedi/bilinear_extra_fast.py",
+    "sha256": "481f0d2af2f8560697476cd637f2393d5d0a570c2e60b805fce3fbeda9847095",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261029_bilinear_logit_rate/Eedi/select_extended_grid.py",
+    "source": "분석/20261029_bilinear_logit_rate/Eedi/select_extended_grid.py",
+    "sha256": "e15b974071847304f0e63a498773d68f8d4fd8c03f49ddcac890eb11620d4dca",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/original_core.py",
+    "source": "분석/20261028_Eedi_predictor/original_core.py",
+    "sha256": "c6b91b3350933036a411a84f937eca5b324606cfe4aa5f5a9ea28b97f9251e64",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/finder_adapter.py",
+    "source": "분석/20261028_Eedi_predictor/finder_adapter.py",
+    "sha256": "860648950bfacc864ce2a016b95e069dc50526c6add516eab21f1dca79270259",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/train_finders.py",
+    "source": "분석/20261028_Eedi_predictor/train_finders.py",
+    "sha256": "88b0cd18a3e0e3a7d3b357dd409ae964815fed6e5ff12833440dd000b9853280",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/prepare.py",
+    "source": "분석/20261028_Eedi_predictor/prepare.py",
+    "sha256": "e14cf7c1e48080d72d8e7628eb0c1ab53fdb809c1872256ea0cc5549d4fc573e",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/build_features.py",
+    "source": "분석/20261028_Eedi_predictor/build_features.py",
+    "sha256": "289a1740c0e53f281a466c0f87946bfd318e0ca61ae8c76a067b8f9af530ccf4",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/config.json",
+    "source": "분석/20261028_Eedi_predictor/config.json",
+    "sha256": "31899e796aa4efadf54d70ae71e10e836098f7af244d64ae033dcdbffe80b244",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/train_mlp.py",
+    "source": "분석/20261028_Eedi_predictor/train_mlp.py",
+    "sha256": "df03953121ca6d1bfe1c0538fcfe525e5d73c389107250cc5688c59d51ad44fb",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/bilinear_fast.py",
+    "source": "분석/20261028_Eedi_predictor/bilinear_fast.py",
+    "sha256": "dcd286a0e6941dce76885daffed18eb4d610bec9da0f3914578709121a0cbbfe",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/bilinear_extra_fast.py",
+    "source": "분석/20261028_Eedi_predictor/bilinear_extra_fast.py",
+    "sha256": "d1430fce9939a818e3787a0f45acf1f220973817dce8e2f7def6e6e90e773667",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_Eedi_predictor/select_extended_grid.py",
+    "source": "분석/20261028_Eedi_predictor/select_extended_grid.py",
+    "sha256": "e15b974071847304f0e63a498773d68f8d4fd8c03f49ddcac890eb11620d4dca",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor/original_core.py",
+    "source": "분석/20261027_EdNet_predictor/original_core.py",
+    "sha256": "c6b91b3350933036a411a84f937eca5b324606cfe4aa5f5a9ea28b97f9251e64",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor/build_features.py",
+    "source": "분석/20261027_EdNet_predictor/build_features.py",
+    "sha256": "c0b69a109f21b03e5317318d9465f9640ffcb47310e1d824fdec230f047d0ca5",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor/train.py",
+    "source": "분석/20261027_EdNet_predictor/train.py",
+    "sha256": "51decb00e5bc89c24a2f6849eb3f1ae7b7c813697dc000f5062a2c41efc6e01f",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor_followup/bilinear_fast.py",
+    "source": "분석/20261027_EdNet_predictor_followup/bilinear_fast.py",
+    "sha256": "e6ed74ae455a0f98638d4c66a4dbfe30797bff4fd83718d13cd4e43cf11b68f9",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor_followup/bilinear_extra_fast.py",
+    "source": "분석/20261027_EdNet_predictor_followup/bilinear_extra_fast.py",
+    "sha256": "ff52d935bdb5681cfef6447682e8bbdf10c92d1adac09616c8d07ac1c61a12d3",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor_followup/select_extended_grid.py",
+    "source": "분석/20261027_EdNet_predictor_followup/select_extended_grid.py",
+    "sha256": "393072d127bf36f2aeca0f403785f75e3f05a20e82667be1ca4a266f8b04608f",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261026_Eedi_57752641/prepare_eedi.py",
+    "source": "분석/20261026_Eedi_57752641/prepare_eedi.py",
+    "sha256": "65d65c493510df25c157fa0c702ed3a8d90f389d2a87a3da5377d6c6822eec27",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261026_Eedi_57752641/config.json",
+    "source": "분석/20261026_Eedi_57752641/config.json",
+    "sha256": "31899e796aa4efadf54d70ae71e10e836098f7af244d64ae033dcdbffe80b244",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261026_Eedi_영역분류/irt_core.py",
+    "source": "분석/20261026_Eedi_영역분류/irt_core.py",
+    "sha256": "4b72a7cbfc7465868630800c37e541e3f9d107ff0455ded0e65026ff94009e17",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261026_Eedi_영역분류/make_folds.py",
+    "source": "분석/20261026_Eedi_영역분류/make_folds.py",
+    "sha256": "86943f7627bb15f9875d91a3a01f906bc5c9382261a6bf3a79015d39e031ab6e",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/classification.py",
+    "source": "분석/20261028_revision1/classification.py",
+    "sha256": "5b2c74ba24c0a5d6b26a8032cc178c83ffce74d24c302840178f16fd754589ef",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/classification_convergence.py",
+    "source": "분석/20261028_revision1/classification_convergence.py",
+    "sha256": "e9d38b2cbc19193408587c654ac7ca6103b47a97487aee9f61dbb79355b4db4a",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261028_revision1/setup.py",
+    "source": "분석/20261028_revision1/setup.py",
+    "sha256": "07854e35623d9d395e92d6ce57199ad461d0801100960db63641fa157df4e802",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261026_EdNet_bundle/prepare.py",
+    "source": "분석/20261026_EdNet_bundle/prepare.py",
+    "sha256": "dbea549f3a13d2fa95d7e1a57f1e8165640a932e67d9cc293b0adc0b58636e91",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261026_EdNet_classification/exposure.py",
+    "source": "분석/20261026_EdNet_유형분류/exposure.py",
+    "sha256": "6bcc7549efe40c95e227344da8468708d231a39392b269ff267923808eba303a",
+    "modification": "none"
+  },
+  {
+    "file": "environment-original.txt",
+    "source": "서버회수/57752641/실행환경.txt",
+    "sha256": "3c8e4884062397864300d1aa0a8668b3fa98cef6c8b622e4d4e148b8d1c2fd81",
+    "modification": "none"
+  },
+  {
+    "file": "legacy/20261027_EdNet_predictor_followup/extend.py",
+    "source": "분석/20261027_EdNet_predictor_followup/extend.py",
+    "sha256": "11963c3436ed08781b0cb60ddb46634f1ee25eb867f69bd3dc3241c261787adc",
+    "modification": "none"
+  }
+]

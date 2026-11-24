@@ -1,0 +1,38 @@
+{
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "protocols": [
+    "warm"
+  ],
+  "evaluation_students": 500,
+  "support_counts": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    40
+  ],
+  "query_count": 40,
+  "validation_fraction": 0.1,
+  "latent_size": 64,
+  "batch_size": 8192,
+  "finder_cycles": 5,
+  "finder_subepochs": 10,
+  "predictor_epochs": 25,
+  "adaptation_epochs": 300,
+  "learning_rate": 0.0005,
+  "irt_nodes": 41,
+  "irt_max_iterations": 3000,
+  "irt_tolerance": 1e-05,
+  "irt_person_batch": 4096,
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 20260914,
+  "correlation_margin": 0.01
+}

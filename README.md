@@ -1,6 +1,6 @@
 # Educational response representations
 
-Numerical reproduction for **Task- and predictor-dependent performance of educational response representations: Item classification and response correctness prediction in EdNet and Eedi**.
+Numerical reproduction for **Evaluating the utility of latent values discovered through cyclic dual latent discovery for item classification and response prediction**.
 
 ## View the results
 
@@ -38,7 +38,9 @@ The notebook covers item classification, bundle-grouped classification, correctn
 
 ## Reproduction scope
 
-This package reproduces numerical analyses **from saved predictions**. It does not train the representation models or downstream predictors. No GPU or raw dataset download is needed. It contains neither the full original response matrices nor personal names or contact details.
+The root-level reproduction command recalculates numerical analyses **from saved predictions**, without a GPU or raw dataset download. The separate [training source and execution guide](training/README.md) provides preprocessing, split construction, representation generation, classification, and predictor training. Training requires provider data and its own environment. Neither the full original response matrices nor personal names or contact details are bundled.
+
+The training scripts are archived study code connected by a new portable runner. Synthetic-data integration checks passed; full GPU retraining with the assembled runner has not been performed. See [validation details](training/validation.json).
 
 Classification bootstrap units are item IDs or bundle IDs; correctness bootstrap units are student IDs. The same ID receives the same multiplicity across runs. Confidence intervals are conditional on the fitted models. Correctness fits with and without the item-rate input are separate fits, so their differences do not isolate a causal input effect.
 

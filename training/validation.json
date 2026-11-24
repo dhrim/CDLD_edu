@@ -1,0 +1,17 @@
+{
+  "source_files": 43,
+  "core_AST_match_to_original_EdNet_notebook": {
+    "prepare_data": true,
+    "make_split": true,
+    "fit_irt": true,
+    "fit_cdld": true,
+    "build_finder_model": true,
+    "ResponseBatches": true,
+    "ReferenceStopping": true
+  },
+  "archived_prediction_hashes_unchanged": true,
+  "CPU_synthetic_check": "passed (Python 3.12.14, NumPy 1.26.4, SciPy 1.11.4, scikit-learn 1.5.2, pandas 2.2.3)",
+  "archived_numerical_reproduction": "passed 5000 paired bootstrap; atol=rtol=1e-10",
+  "full_GPU_retraining": "not run",
+  "TensorFlow_bilinear_selftests_this_release": "not run; commands provided"
+}
